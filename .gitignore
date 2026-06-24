@@ -1,0 +1,49 @@
+## .NET gitignore
+
+# Build output
+bin/
+obj/
+out/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET / dotnet publish
+publish/
+dist/
+
+# Logs
+*.log
+logs/
+
+# User secrets
+secrets.json
+appsettings.Local.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Test results
+TestResults/
+coverage/
+*.coveragexml
+*.trx
+
+# dotnet tool manifest lock
+.config/dotnet-tools.json
