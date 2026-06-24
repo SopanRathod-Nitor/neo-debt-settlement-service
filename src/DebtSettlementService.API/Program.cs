@@ -1,7 +1,7 @@
 using System.Text;
 using DebtSettlementService.API.Middleware;
+using DebtSettlementService.Application.Commands.CreateSettlement;
 using DebtSettlementService.Application.Interfaces;
-using DebtSettlementService.Application.Services;
 using DebtSettlementService.Persistence.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -66,7 +66,8 @@ builder.Services.AddCors(opt =>
          .AllowAnyHeader().AllowAnyMethod()));
 
 builder.Services.AddSingleton<ISettlementRepository, InMemorySettlementRepository>();
-builder.Services.AddScoped<SettlementService>();
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssemblyContaining<CreateSettlementCommand>());
 
 builder.Services.AddHealthChecks()
     .AddCheck("liveness", () => HealthCheckResult.Healthy(), tags: ["liveness"]);
